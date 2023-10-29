@@ -12,7 +12,9 @@ function fetchData(url) {
     const xhr = new XMLHttpRequest();
 
     xhr.onload = () => {
+        console.log("herq");
         if (xhr.status === 200) {
+            console.log(xhr.responseText);
             const data = JSON.parse(xhr.responseText);
             MAX_PAGES = data.max_pages;
             paginationText.textContent = MAX_PAGES;

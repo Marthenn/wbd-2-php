@@ -13,7 +13,9 @@ function fetchData(url) {
 
     xhr.onload = () => {
         if (xhr.status === 200) {
+            console.log(xhr.responseText);
             const data = JSON.parse(xhr.responseText);
+            console.log(data.max_pages);
             MAX_PAGES = data.max_pages;
             paginationText.textContent = MAX_PAGES;
             updateData(data.users);
@@ -121,6 +123,8 @@ const updateData = (data) => {
         `;
     });
     dataCards.innerHTML = generatedHTML;
+    pageInput.value = currentPage;
+
     prevButton.disabled = currentPage <= 1;
     nextButton.disabled = currentPage >= MAX_PAGES;
 };

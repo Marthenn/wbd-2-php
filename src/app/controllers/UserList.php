@@ -20,7 +20,7 @@ class UserList extends Controller {
                 case 'GET':
                     $filter = isset($_GET['search']) ? $_GET['search'] : null;
                     $accountModel = $this->model('Account_model');
-                    $maxPages = $accountModel->countPage();
+                    $maxPages = $accountModel->countPage($filter);
                     
                     if ($page > $maxPages) {
                         $page = $maxPages;
