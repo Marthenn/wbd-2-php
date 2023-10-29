@@ -18,6 +18,7 @@ class AuthorList extends Controller {
         try {
             switch ($_SERVER['REQUEST_METHOD']) {
                 case 'GET':
+                    $filter = isset($_GET['search']) ? $_GET['search'] : null;
                     $authorModel = $this->model('Author_model');
                     $maxPages = $authorModel->countPage($filter);
                     

@@ -53,6 +53,7 @@ searchInput && searchInput.addEventListener(
     debounce(() => {
         const url = buildUrl();
         fetchData(url);
+        console.log(url);
     })
 )
 

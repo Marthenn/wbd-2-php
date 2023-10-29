@@ -45,15 +45,17 @@ function fetchData(url) {
 function buildUrl() {
     const queryParameters = [];
     if (searchInput.value !== "") {
-        queryParameters.push(`${encodeURIComponent(searchInput.value.replace(/ /g, '+'))}`);
+        const encodedValue = searchInput.value.replace(/ /g, '+');
+        queryParameters.push(encodeURIComponent(encodedValue));
     }
-    return `/public/authorlist/fetch/${currentPage}${queryParameters.length > 0 ? `/${queryParameters.join('/')}` : ''}`;
+    return `/public/authorlist/fetch/${currentPage}${queryParameters.length > 0 ? `/&search=${queryParameters.join('/')}` : ''}`;
 }
 
 searchInput && searchInput.addEventListener(
     "keyup",
     debounce(() => {
         const url = buildUrl();
+        console.log(url);
         fetchData(url);
     })
 )

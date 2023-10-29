@@ -47,7 +47,7 @@ function buildUrl() {
     if (searchInput.value !== "") {
         queryParameters.push(`${encodeURIComponent(searchInput.value.replace(/ /g, '+'))}`);
     }
-    return `/public/userlist/fetch/${currentPage}${queryParameters.length > 0 ? `/${queryParameters.join('/')}` : ''}`;
+    return `/public/userlist/fetch/${currentPage}${queryParameters.length > 0 ? `/&search=${queryParameters.join('/')}` : ''}`;
 }
 
 searchInput && searchInput.addEventListener(
