@@ -144,7 +144,7 @@ function buildUrl() {
 
     const queryString = queryParams.join('/');
 
-    return `/public/audiobooks/fetch/${currentPage}/${queryString}`;
+    return `/public/audiobooklist/fetch/${currentPage}/${queryString}`;
 }
 
 const updateView = (data) => {
@@ -164,7 +164,7 @@ const updateView = (data) => {
 
         updatedHTML +=
         `
-        <a href="${BASEURL}/bookdetails/${book.bid}" class="book-card">
+        <a href="${BASEURL}/bookdetailsadmin/${book.bid}" class="book-card">
             <div class="cover">
                 <img class="cover-img" src="${coverImageSrc}" alt="cover">
             </div>

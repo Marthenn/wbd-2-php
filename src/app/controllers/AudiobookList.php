@@ -1,5 +1,6 @@
 <?php
-class AudiobookList extends Controller {
+
+class AudioBookList extends Controller {
     public function index($page = 1)
     {
         $data['title'] = 'Audiobook List';
@@ -7,8 +8,9 @@ class AudiobookList extends Controller {
         $this->view('templates/navbar_admin');
         $page = (int) $page;
         $bookModel = $this->model('Book_model');
-        $data['books'] = $bookModel->getBookPageAdmin($page);
-        $data['pages'] = $bookModel->countPageAdmin();
+        $data['books'] = $bookModel->getBookPage($page);
+        $data['pages'] = $bookModel->countPage();
+        var_dump($data['pages']);
         $data['categories'] = $bookModel->getAllCategories();
         $this->view('admin_list/audiobooks', $data);
         $this->view('templates/pagination', $data);
@@ -20,6 +22,7 @@ class AudiobookList extends Controller {
         try {
             switch ($_SERVER['REQUEST_METHOD']) {
                 case 'GET':
+                    
                     $search = isset($_GET['search']) ? $_GET['search'] : null;
                     $duration = isset($_GET['duration']) ? $_GET['duration'] : null;
                     $category = isset($_GET['category']) ? $_GET['category'] : null;
@@ -56,7 +59,7 @@ class AudiobookList extends Controller {
     
                     // var_dump($filter);
                     $bookModel = $this->model('Book_model');
-                    $maxPages = $bookModel->countPageAdmin($filter);
+                    $maxPages = $bookModel->countPage($filter);
                     
                     if ($page > $maxPages) {
                         $page = $maxPages;
@@ -66,7 +69,7 @@ class AudiobookList extends Controller {
                         $page = 1;
                     }
                     
-                    $bookPage = $bookModel->getBookpageAdmin($page, $filter);
+                    $bookPage = $bookModel->getBookPage($page, $filter);
 
                     $res = [
                         'books' => $bookPage,

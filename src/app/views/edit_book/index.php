@@ -1,5 +1,5 @@
 <div class="edit-book-page">
-    <a href="<?= BASEURL;?>/audiobooklist">
+    <a href="<?= BASEURL;?>/bookdetailsadmin/<?= $data['bid']?>">
        <img class="back-arrow" src="<?= BASEURL;?>/img/back-arrow.svg" alt="back">
     </a>
     <div class="edit-book-contents">
