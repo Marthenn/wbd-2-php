@@ -54,7 +54,7 @@
 .custom-file-label {
     background-color: #1F1F1F;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     color: #ffffff;
     font-weight: bold;
     font-size: 14px;
@@ -81,18 +81,19 @@
 .save-changes {
     background-color: #1F1F1F;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     color: #ffffff;
     font-weight: bold;
     padding: 10px;
     width: 70%;
     margin: 10px 0px;
+    height: 36px;
 }
 
 .delete-account, .sign-out {
     background: linear-gradient(135deg, #FF1C26, #FF575F);
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     color: #ffffff;
     padding: 10px;
     width: 70%;

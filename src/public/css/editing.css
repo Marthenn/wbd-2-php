@@ -76,7 +76,7 @@
 .save-changes-book, .save-changes-author {
     background-color: #1F1F1F;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     color: #ffffff;
     font-weight: bold;
     padding: 10px;
@@ -87,7 +87,7 @@
 .delete-book, .delete-author {
     background: linear-gradient(135deg, #FF1C26, #FF575F);
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     color: #ffffff;
     padding: 10px;
     width: 50%;

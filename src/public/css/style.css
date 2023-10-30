@@ -55,7 +55,7 @@ textarea, input, select {
 }
 
 @media (hover: hover) {
-    a:hover, button:hover{
+    a:hover, button:hover, .save-changes:hover{
         opacity: 50%;
     }
 }

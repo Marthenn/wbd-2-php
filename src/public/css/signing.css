@@ -37,7 +37,7 @@
 .sign-in-form .submit-button button, .sign-up-form .submit-button button{
     background-color: #1F1F1F;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     color: #ffffff;
     font-weight: bold;
     padding: 10px;
