@@ -32,7 +32,7 @@
                     <label for="cover-image">Cover Image</label>
                 </div>
                 <div>
-                    <input type="file" name="cover-image" id="cover-image">
+                    <input type="file" accept="image/png, image/jpeg" name="cover-image" id="cover-image">
                 </div>
             </div>
             <div class="file-field">
@@ -40,7 +40,7 @@
                     <label for="audio-file">Audio File<span id="required-input">*</span></label>
                 </div>
                 <div>
-                    <input type="file" name="audio-file" id="audio-file" required>
+                    <input type="file" accept="audio/mp3" name="audio-file" id="audio-file" required>
                 </div>
             </div>
             <button class="save-changes-book" type="submit" name="save-changes-book" id="save-changes-book">Save Changes</button>
