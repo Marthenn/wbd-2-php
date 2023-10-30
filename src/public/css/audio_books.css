@@ -29,6 +29,10 @@
 .book-card .details .title {
     font-weight: bold;
     text-align: left;
+    text-overflow: ellipsis;
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .book-card .details .author {
