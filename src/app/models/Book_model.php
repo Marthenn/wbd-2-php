@@ -356,16 +356,12 @@ class Book_model {
         }
     
         // Inserting the book record
-        $query = "INSERT INTO book (title, aid, rating, cid, description, duration, audio_directory) VALUES (:title, :aid, :rating, :cid, :description, :duration, :audio_directory)";
-        if ($data['cover_image_directory'] != null){
-            if ($data['cover_image_directory'] == 'delete_please'){
-                $query = $query . ", cover_image_directory = NULL";
-            } else {
-                $query = $query . ", cover_image_directory = :cover_image_directory";
-                $this->database->bind('cover_image_directory', $data['cover_image_directory']);
-            }
+        $query = "INSERT INTO book (title, aid, rating, cid, description, duration";
+        if($data['cover_image_directory'] != null){
+            $query = $query . ", cover_image_directory, audio_directory) VALUES (:title, :aid, :rating, :cid, :description, :duration, :audio_directory, :cover_image_directory)";
+        } else {
+            $query = $query . ", audio_directory) VALUES (:title, :aid, :rating, :cid, :description, :duration, :audio_directory)";
         }
-
         $this->database->query($query);
         $this->database->bind(':title', $data['title']);
         $this->database->bind(':aid', $aid);
@@ -374,7 +370,9 @@ class Book_model {
         $this->database->bind(':description', $data['description']);
         $this->database->bind(':duration', $data['duration']);
         $this->database->bind(':audio_directory', $data['audio_directory']);
-
+        if($data['cover_image_directory'] != null){
+            $this->database->bind(':cover_image_directory', $data['cover_image_directory']);
+        }
         $this->database->execute();
     }
     
