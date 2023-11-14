@@ -431,20 +431,10 @@ class Book_model {
             throw new Exception('Unauthorized', 401);
         }
 
-        // select all column except audio_directory
-        $query = "SELECT bid, title, description, rating, aid, cid, duration, cover_image_directory FROM book";
+        // select all column except audio_directory but change aid and cid to the author name and category name respectively
+        $query = "SELECT bid, title, author.name as author, rating, category.name as category, duration, cover_image_directory FROM book JOIN author ON book.aid = author.aid JOIN category ON book.cid = category.cid";
         $this->database->query($query);
+        $book_list = $this->database->resultSet();
         return $this->database->resultSet();
-    }
-
-    public function getCategory($id, $key) {
-        if ($key !== PHP_KEY) {
-            throw new Exception('Unauthorized', 401);
-        }
-
-        $query = "SELECT * from category WHERE cid = :id";
-        $this->database->query($query);
-        $this->database->bind(':id', $id);
-        return $this->database->single();
     }
 }
