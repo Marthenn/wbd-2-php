@@ -436,4 +436,15 @@ class Book_model {
         $this->database->query($query);
         return $this->database->resultSet();
     }
+
+    public function getCategory($id, $key) {
+        if ($key !== PHP_KEY) {
+            throw new Exception('Unauthorized', 401);
+        }
+
+        $query = "SELECT * from category WHERE cid = :id";
+        $this->database->query($query);
+        $this->database->bind(':id', $id);
+        return $this->database->single();
+    }
 }
