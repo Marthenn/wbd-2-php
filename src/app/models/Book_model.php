@@ -426,7 +426,11 @@ class Book_model {
         }
     }
 
-    public function getAllBook(){
+    public function getAllBooks($key){
+        if ($key !== PHP_KEY){
+            throw new Exception('Unauthorized', 401);
+        }
+
         $query = "SELECT * from book";
         $this->database->query($query);
         return $this->database->resultSet();
