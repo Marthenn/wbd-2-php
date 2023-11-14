@@ -22,9 +22,9 @@ class Synchronizer extends Controller {
                     $res = $bookModel->getAllBooks($key);
                     if (!$res){
                         header('Content-Type: application/json');
-                        http_response_code(404);
+                        http_response_code(200);
                         $responseData = [
-                            'message' => 'No books found',
+                            'books' => [],
                         ];
                     } else {
                         http_response_code(200);
