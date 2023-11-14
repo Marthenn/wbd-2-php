@@ -431,7 +431,8 @@ class Book_model {
             throw new Exception('Unauthorized', 401);
         }
 
-        $query = "SELECT * from book";
+        // select all column except audio_directory
+        $query = "SELECT bid, title, description, rating, aid, cid, duration, cover_image_directory FROM book";
         $this->database->query($query);
         return $this->database->resultSet();
     }
