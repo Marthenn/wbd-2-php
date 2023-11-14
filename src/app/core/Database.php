@@ -6,12 +6,13 @@ class Database {
     private $user = DB_USER;
     private $pass = DB_PASS;
     private $dbname = DB_NAME;
+    private $dbport = DB_PORT;
 
     private $dbh; // database handler
     private $stmt; // statement
 
     public function __construct(){
-        $dsn = 'pgsql:host=' . $this->host . ';dbname=' . $this->dbname;
+        $dsn = 'pgsql:host=' . $this->host . ';dbname=' . $this->dbname. ';port=' . $this->dbport;
 
         // set PDO options
         $options = [

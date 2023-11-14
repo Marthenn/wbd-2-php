@@ -15,7 +15,7 @@ class Synchronizer extends Controller {
                 case 'POST':
                     $key = $_POST['key'];
                     if ($key !== PHP_KEY){
-                        throw new Exception('Unauthorized, key gotten is ' + $key  + 'it should be ' + PHP_KEY, 401);
+                        throw new Exception('Unauthorized', 401);
                     }
 
                     $bookModel = $this->model('Book_model');
@@ -35,6 +35,31 @@ class Synchronizer extends Controller {
                     }
                     echo json_encode($responseData);
                     exit;
+                default:
+                    throw new Exception('Invalid request method', 405);
+            }
+        } catch (Exception $e){
+            http_response_code(500);
+            header('Content-Type: application/json');
+            $responseData = [
+                'message' => $e->getMessage(),
+            ];
+            echo json_encode($responseData);
+        }
+    }
+
+    public function getCategory(){
+        try {
+            switch($_SERVER['REQUEST_METHOD']){
+                case 'POST':
+                    $id = $_POST['id'];
+                    $key = $_POST['key'];
+                    if ($key !== PHP_KEY){
+                        throw new Exception('Unauthorized', 401);
+                    }
+
+                    $category = $this->model('Category_model');
+                    $res = $category->getCategory($id);
                 default:
                     throw new Exception('Invalid request method', 405);
             }
