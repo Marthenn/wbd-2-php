@@ -425,4 +425,10 @@ class Book_model {
             $this->database->execute();
         }
     }
+
+    public function getAllBook(){
+        $query = "SELECT * from book";
+        $this->database->query($query);
+        return $this->database->resultSet();
+    }
 }
