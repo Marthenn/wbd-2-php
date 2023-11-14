@@ -14,28 +14,29 @@ services:
       - ./src:/var/www/html
       - ./.env:/var/www/html/.env
     depends_on:
-      - db
+      - db-postgres-php
     command: ["./run.sh", "apache2-foreground"]
     networks:
       app-env:
   
-  db:
+  db-postgres-php:
     image: postgres:16
     restart: always
-    container_name: postgres 
+    container_name: db-php-webwbd-1
     environment:
       - POSTGRES_USER=dev
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=audiobookdb
     hostname: db-tubes-1
     ports:
-      - "5432:5432"
+      - 50025:50025
     volumes:
       - data_16:/var/lib/postgresql/data
       - ./dbinit/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       app-env:
       interface:
+    command: -p 50025
 
   pgadmin:
     image: dpage/pgadmin4:latest
