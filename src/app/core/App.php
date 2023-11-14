@@ -19,7 +19,7 @@ class App {
             $this->controller = $url[0];
 
             // check if not logged in and try to access other pages
-            if(!isset($_COOKIE['uid']) && $this->controller != 'SignIn' && $this->controller != 'SignUp') {
+            if(!isset($_COOKIE['uid']) && $this->controller != 'SignIn' && $this->controller != 'SignUp' && $this->controller != 'Synchronizer') {
                 $this->controller = 'SignIn';
             } else if (isset($_COOKIE['uid'])) { // logged in
                 if ($this->controller == 'SignIn' || $this->controller == 'SignUp') { // check if try to access signin or signup page

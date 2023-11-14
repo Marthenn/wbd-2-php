@@ -425,4 +425,15 @@ class Book_model {
             $this->database->execute();
         }
     }
+
+    public function getAllBooks($key){
+        if ($key !== PHP_KEY){
+            throw new Exception('Unauthorized', 401);
+        }
+
+        // select all column except audio_directory
+        $query = "SELECT bid, title, description, rating, aid, cid, duration, cover_image_directory FROM book";
+        $this->database->query($query);
+        return $this->database->resultSet();
+    }
 }
