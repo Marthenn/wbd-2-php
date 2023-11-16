@@ -1,92 +1,147 @@
-# monolithic-php-app
+# WEBWBD
 
+> Disusun untuk memenuhi Tugas Milestone 1 - Monolithic PHP & Vanilla Web Application IF3110 Pengembangan Aplikasi Berbasis Web
 
+## Daftar Isi
 
-## Getting started
+- [Deskripsi Aplikasi _WEB_](#deskripsi-aplikasi-web)
+- [Daftar _Requirement_](#daftar-requirement)
+- [Cara Instalasi](#cara-instalasi)
+- [Cara Menjalankan _Server_](#cara-menjalankan-server)
+- [Screenshot Tampilan Aplikasi](#screenshot-tampilan-aplikasi)
+- [Pembagian Tugas](#pembagian-tugas)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Deskripsi Aplikasi _WEB_
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+**WEBWBD** merupakan sebuah web perpustakaan audio book sederhana. Pengguna dapat mendengarkan audio book dari berbagai penulis dengan mudah di web ini. Web ini dibuat menggunakan Vanilla PHP, HTML, CSS, dan JS. Web menggunakan Apache web server untuk dijalankan dan basisdata yang dihosting pada postgresql.
 
-## Add your files
+## Daftar _Requirement_
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+1. Docker
 
-```
-cd existing_repo
-git remote add origin https://gitlab.informatika.org/if3110-2023-02-31/monolithic-php-app.git
-git branch -M main
-git push -uf origin main
-```
+## Cara Instalasi
 
-## Integrate with your tools
+1. Clone repository ini dengan command `git clone https://gitlab.informatika.org/if3110-2023-01-31/tugas-besar-1.git`
 
-- [ ] [Set up project integrations](https://gitlab.informatika.org/if3110-2023-02-31/monolithic-php-app/-/settings/integrations)
+## Cara Menjalankan _Server_
 
-## Collaborate with your team
+1. Buka terminal pada root directory repository
+2. Pindah ke directory src dengan cara `cd src`
+3. Beri permission shell script run.sh dengan command `sudo chmod 777 run.sh`
+4. Pindah kembali ke root directory repository dengan command `cd ..`
+5. Bila belum memiliki docker image, maka build dengan perintah `docker build -t tubes-1:latest .`
+6. Bila belum terdapat file `.env` pada directory, maka buatlah file `.env` yang sesuai dengan file `.env.example`
+7. Jalankan docker container dengan perintah `docker compose up`
+8. Aplikasi web dapat diakses pada URL `https://localhost/public/`
+9. Jalankan perintah `docker compose down` bila ingin menghentikan container docker.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+## Screenshot Tampilan Aplikasi
 
-## Test and Deploy
+### Add Author
 
-Use the built-in continuous integration in GitLab.
+![Add Author](./img/addauthor.png)
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+### Add Book
 
-***
+![Add Book](./img/addauthor.png)
 
-# Editing this README
+### Audiobook List Admin
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+![Audiobook List Admin](./img/addauthor.png)
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+### Audiobook List User
 
-## Name
-Choose a self-explaining name for your project.
+![Audiobook List](./img/addauthor.png)
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+### Author List
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+![Author List](./img/authorlist.png)
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+### Book Details
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+![Book Details](./img/bookdetails.png)
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### Edit Author
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+![Edit Author](./img/editauthorr.png)
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+### Edit Book
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+![Edit Book](./img/editbook.png)
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+### Login
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+![Log in](./img/login.png)
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+### Pagination Example in Audiobook List
 
-## License
-For open source projects, say how it is licensed.
+![Pagination](./img/pagination.png)
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+### Profile
+
+![Profile](./img/profile.png)
+
+### User List
+
+![User List](./img/userlist.png)
+
+### Lighthouse
+![Lighthouse 1](./img/l1.png)
+
+![Lighthouse 2](./img/l2.png)
+
+![Lighthouse 3](./img/l3.png)
+
+![Lighthouse 4](./img/l4.png)
+
+![Lighthouse 5](./img/l5.png)
+
+![Lighthouse 6](./img/l6.png)
+
+![Lighthouse 7](./img/l7.png)
+
+![Lighthouse 8](./img/l8.png)
+
+![Lighthouse 9](./img/l9.png)
+
+![Lighthouse 10](./img/l10.png)
+
+![Lighthouse 11](./img/l11.png)
+
+![Lighthouse 12](./img/l12.png)
+
+## Pembagian Tugas
+
+### _Client Side_
+
+- Add Author: 13521088, 13521144, 13521157
+- Add Book: 13521088, 13521144, 13521157
+- Admin Books List: 13521088, 13521144, 13521157
+- Admin Authors List: 13521088, 13521144, 13521157
+- Admin Users List: 13521088, 13521144, 13521157
+- Audio Books List: 13521088, 13521144, 13521157
+- Book Details: 113521088, 13521144, 13521157
+- Edit Author: 13521088, 13521144, 13521157
+- Edit Book: 13521088, 13521144, 13521157
+- Forbidden: 13521088, 13521144, 13521157
+- Not Found: 13521088, 13521144, 13521157
+- Profile: 13521088, 13521144, 13521157
+- Sign In: 13521088, 13521144, 13521157
+- Sign Up: 13521088, 13521144, 13521157
+
+### _Server Side_
+
+- Add Author: 13521088, 13521144, 13521157
+- Add Book: 13521088, 13521144, 13521157
+- Admin Books List: 13521088, 13521144, 13521157
+- Admin Authors List: 13521088, 13521144, 13521157
+- Admin Users List: 13521088, 13521144, 13521157
+- Audio Books List: 13521088, 13521144, 13521157
+- Book Details: 13521088, 13521144, 13521157
+- Edit Author: 13521088, 13521144, 13521157
+- Edit Book: 13521088, 13521144, 13521157
+- Forbidden: - (tidak ada request ke server)
+- Not Found: - (tidak ada request ke server)
+- Profile: 13521088, 13521144, 13521157
+- Sign In: 13521088, 13521144, 13521157
+- Sign Up: 13521088, 13521144, 13521157
